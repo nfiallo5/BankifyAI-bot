@@ -2,12 +2,23 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+- story: inversiones
   steps:
   - intent: greet
   - action: utter_greet
   - intent: mood_great
   - action: utter_happy
+  - checkpoint: simulacion_inversion
+
+- story: usuario pide simulaciones
+  steps: 
+  - checkpoint: simulacion_inversiones
+  - intent: afirmacion
+
+- story: usuario no pide simulaciones
+  steps: 
+  - checkpoint: simulacion_inversiones
+  - intent: negar
 
 - story: sad path 1
   steps:
