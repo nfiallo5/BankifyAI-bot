@@ -17,12 +17,6 @@ responses:
   - text: "Here is something to cheer you up:"
     image: "https://i.imgur.com/nGF1K8f.jpg"
 
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
   utter_goodbye:
   - text: "Bye"
 
@@ -38,7 +32,7 @@ responses:
   
   utter_acepta_inversion:
   - text: "Aqui te doy unos ejemplos que le sacara el maximo provecho a la tasa de interés"
-    
+
 
 session_config:
   session_expiration_time: 60
