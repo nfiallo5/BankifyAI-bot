@@ -2,44 +2,60 @@ version: "3.1"
 
 intents:
   - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - provide_id
+  - accept_terms
+  - reject_terms
+  - ask_products
+  - choose_product
+  - confirm_help
+  - reject_help
+
+entities:
+  - id_number
+  - product
+
+slots:
+  id_number:
+    type: text
+  product:
+    type: text
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+    - text: "Hola soy Chip 🐶, tu asesor virtual de Banco Internacional. Veo que es tu primera vez por aquí. Para mantener tus datos seguros, voy a iniciar tu registro. Por favor ingresa tu número de cédula de 10 dígitos, sin espacios o guiones."
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_ask_id:
+    - text: "Por favor ingresa tu número de cédula de 10 dígitos."
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_accept_terms:
+    - text: "¿Aceptas el tratamiento de tus datos personales para interactuar por este canal según los Términos y Condiciones? (Responde 'Sí' o 'No')"
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_ask_products:
+    - text: "Selecciona la opción que deseas: \n1. Cuenta Ahorro Rentable \n2. Cuenta de Ahorros \n3. Cuenta Corriente \n4. Tarjeta de Crédito \n5. Inversiones \n6. Créditos"
+
+  utter_show_product_info:
+    - text: "Aquí tienes información sobre {product}: {product_info}. ¿Puedo atenderte en algo adicional?"
+
+  utter_confirm_help:
+    - text: "¿Puedo atenderte en algo adicional?"
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "Gracias por usar nuestro servicio. ¡Hasta luego!"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  utter_info_cuenta_ahorros:
+    - text: "Abre tu Cuenta de Ahorros en 5 minutos y obtén 90 días sin comisión en pagos de Servicios Online."
 
-  preguntar_por_inversion:
-  - text: "Deseas que te presente un par de simulaciones de tu futura inversion?"
+  utter_info_cuenta_corriente:
+    - text: "Administra tus recursos con una Cuenta Corriente con chequera y tarjeta de débito. Accede a sobregiros."
 
-  utter_niega_inversion:
-  - text: "Entonces te recomiendo 'Simula tun inversion' en nuestra pagina web"
-    text: "Te ha interesado nuestra propuesta?"
-  
-  utter_acepta_inversion:
-  - text: "Aqui te doy unos ejemplos que le sacara el maximo provecho a la tasa de interés"
-    
+  utter_info_tarjeta_credito:
+    - text: "Tarjeta de crédito con beneficios exclusivos y acumulación de millas por cada consumo."
 
+  utter_info_inversiones:
+    - text: "Inversión rentable desde el primer día. Obtén asesoría exclusiva y maximiza tu dinero."
+
+actions:
+  - action_show_product_info
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
