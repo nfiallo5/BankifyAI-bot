@@ -6,7 +6,7 @@ stories:
   steps:
   - intent: greet
   - action: preguntar_por_inversion
-  - checkpoint: simulacion_inversion
+  - checkpoint: simulacion_inversiones  
 
 - story: usuario pide simulaciones
   steps: 
