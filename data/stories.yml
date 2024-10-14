@@ -2,6 +2,69 @@ version: "3.1"
 
 stories:
 
+- story: Flujo completo
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_id
+
+    - intent: provide_id
+      entities:
+        - id_number: "1234567890"
+    - action: utter_accept_terms
+
+    - intent: accept_terms
+    - action: utter_ask_products
+
+    - intent: choose_product
+      entities:
+        - product: "Cuenta de Ahorros"
+    - action: action_show_product_info
+    - action: utter_confirm_help
+
+    - intent: reject_help
+    - action: utter_goodbye
+
+- story: Flujo cuenta de ahorros
+  steps:
+  - intent: choose_product
+    entities:
+    - product: "Cuenta de Ahorros"
+  - action: action_show_product_info
+  - action: utter_confirm_help
+  - intent: reject_help
+  - action: utter_goodbye
+
+- story: Flujo cuenta corriente
+  steps:
+  - intent: choose_product
+    entities:
+      - product: "Cuenta Corriente"
+  - action: action_show_product_info
+  - action: utter_confirm_help
+  - intent: reject_help
+  - action: utter_goodbye
+
+- story: Flujo tarjeta de crédito
+  steps:
+    - intent: choose_product
+      entities:
+       - product: "Tarjeta de Crédito"
+    - action: action_show_product_info
+    - action: utter_confirm_help
+    - intent: reject_help
+    - action: utter_goodbye
+
+- story: Flujo inversiones
+  steps:
+  - intent: choose_product
+    entities:
+      - product: "Inversiones"
+  - action: action_show_product_info
+  - action: utter_confirm_help
+  - intent: reject_help
+  - action: utter_goodbye
+
 - story: inversiones
   steps:
   - intent: greet
@@ -11,12 +74,30 @@ stories:
 - story: usuario pide simulaciones
   steps: 
   - checkpoint: simulacion_inversiones
-  - intent: afirmacion
+  - intent: confirm_help
   - action: utter_acepta_inversion
 
 - story: usuario no pide simulaciones
   steps: 
   - checkpoint: simulacion_inversiones
   - intent: negar
-  - action: utter_niega_inversion
 
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye

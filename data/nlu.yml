@@ -3,6 +3,7 @@ version: "3.1"
 nlu:
 - intent: greet
   examples: |
+<<<<<<< HEAD
     - hey
     - hello
     - hi
@@ -18,52 +19,50 @@ nlu:
     - good afternoon
     - hola
     - alo 
+=======
+    - Hola
+    - Buenos días
+    - Buenas tardes
+    - Buenas
+>>>>>>> adicciones
 
-- intent: goodbye
+- intent: accept_terms
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+    - Sí
+    - Acepto
+    - Claro, acepto los términos
 
-- intent: afirmacion
+- intent: reject_terms
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-    - si 
-    - s
-    - claro 
-    - asi es
+    - No
+    - No acepto
+    - No quiero aceptar
 
-- intent: negar
+- intent: ask_products
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-    - ahora no 
-    - mas tarde
+    - Quiero ver las opciones
+    - ¿Qué productos tienen?
+    - Muéstrame las cuentas
 
 
-- intent: bot_challenge
+- intent: choose_product
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - Cuenta de Ahorros
+    - Quiero abrir una cuenta corriente
+    - Tarjeta de Crédito
+    - Estoy interesado en una inversión
+
+- intent: confirm_help
+  examples: |
+    - Sí
+    - Claro
+    - Sí, por favor
+
+- intent: reject_help
+  examples: |
+    - No
+    - Eso sería todo
+    - No, gracias
 
 # - intent: 
 #   examples: |
