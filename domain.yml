@@ -6,6 +6,7 @@ intents:
   - afirmacion
   - negar
   - bot_challenge
+  - provide_number
 
 responses:
   utter_greet:
@@ -39,6 +40,10 @@ responses:
   - text: "La inversión de $6000 a 18 meses genera un valor total de $6870, con una tasa de interés del 7.25%."
   - text: "La inversión de $6000 a 24 meses genera un valor total de $6653, con una tasa de interés del 7.25%."
 
+slots: 
+  number:
+    type: float
+    influence_conversation: false
 
 
 session_config:

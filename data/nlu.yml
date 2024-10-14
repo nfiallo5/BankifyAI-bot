@@ -65,3 +65,10 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
+- intent: 
+  examples: |
+    - Mi numero es [45] (number)
+    - Quiero calcular con [20] (number)
+    - Usa el [100] (number)
+    - Calcula [30] dolares (number)
+
