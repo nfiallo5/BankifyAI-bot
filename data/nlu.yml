@@ -58,6 +58,12 @@ nlu:
     - [0987654321] (id_number)
     - Es [0928475914] (id_number)
 
+- intent: choose_product
+  examples: |
+    - Quiero saber de [Cuenta Corriente] (product)
+    - Hablame de [Inversiones] (product)
+    - [Tarjeta de Credito] (product)
+
 - intent: provide_number
   examples: |
     - Mi numero es [45] (number)

@@ -23,25 +23,21 @@ stories:
     - intent: reject_help
     - action: utter_goodbye
 
-- story: Flujo cuenta de ahorros
+- story: Client chooses Cuenta de Ahorros
   steps:
-  - intent: choose_product
-    entities:
-    - product: "Cuenta de Ahorros"
-  - action: action_show_product_info
-  - action: utter_confirm_help
-  - intent: reject_help
-  - action: utter_goodbye
+    - intent: choose_product
+      entities:
+        - product: "Cuenta de Ahorros"
+    - action: action_show_product_info
+    - action: utter_confirm_help
 
-- story: Flujo cuenta corriente
+- story: Client chooses Cuenta Corriente
   steps:
-  - intent: choose_product
-    entities:
-      - product: "Cuenta Corriente"
-  - action: action_show_product_info
-  - action: utter_confirm_help
-  - intent: reject_help
-  - action: utter_goodbye
+    - intent: choose_product
+      entities:
+        - product: "Cuenta Corriente"
+    - action: action_show_product_info
+    - action: utter_confirm_help
 
 - story: Flujo tarjeta de crédito
   steps:
