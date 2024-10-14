@@ -2,13 +2,10 @@ version: "3.1"
 
 intents:
   - greet
-<<<<<<< HEAD
   - goodbye
   - afirmacion
   - negar
-  - bot_challenge
   - provide_number
-=======
   - provide_id
   - accept_terms
   - reject_terms
@@ -20,13 +17,29 @@ intents:
 entities:
   - id_number
   - product
+  - number
 
 slots:
-  id_number:
-    type: text
   product:
     type: text
->>>>>>> adicciones
+    mappings:
+      - type: from_entity
+        entity: product
+  number:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: number
+  id_number:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: id_number
+
+regex: 
+  - name: id_number
+    pattern: "[0-9]{10}"
+
 
 responses:
   utter_greet:
@@ -35,8 +48,6 @@ responses:
   utter_ask_id:
     - text: "Por favor ingresa tu número de cédula de 10 dígitos."
 
-<<<<<<< HEAD
-=======
   utter_accept_terms:
     - text: "¿Aceptas el tratamiento de tus datos personales para interactuar por este canal según los Términos y Condiciones? (Responde 'Sí' o 'No')"
 
@@ -49,7 +60,6 @@ responses:
   utter_confirm_help:
     - text: "¿Puedo atenderte en algo adicional?"
 
->>>>>>> adicciones
   utter_goodbye:
     - text: "Gracias por usar nuestro servicio. ¡Hasta luego!"
 
@@ -59,15 +69,16 @@ responses:
   utter_info_cuenta_corriente:
     - text: "Administra tus recursos con una Cuenta Corriente con chequera y tarjeta de débito. Accede a sobregiros."
 
-<<<<<<< HEAD
+  utter_pregunta_por_inversion:
+    - text: "Deseas que te presene un par de inversiones para tu futura inversion? "
+
   utter_niega_inversion:
-  - text: "Entonces te recomiendo 'Simula tun inversion' en nuestra pagina web"
-  - text: "Te ha interesado nuestra propuesta?"
+  - text: "Entonces te recomiendo 'Simula tun inversion' en nuestra pagina web \nTe ha interesado nuestra propuesta?"
   
   utter_acepta_inversion:
   - text: "Aqui te doy unos ejemplos que le sacara el maximo provecho a la tasa de interés"
 
-  ejemplos_inversiones:
+  utter_ejemplos_inversiones:
   - text: "La inversión de $3000 a 12 meses genera un valor total de $3216, con una tasa de interés del 7.20%."
   - text: "La inversión de $3000 a 18 meses genera un valor total de $3326, con una tasa de interés del 7.25%."
   - text: "La inversión de $3000 a 24 meses genera un valor total de $3435, con una tasa de interés del 7.25%."
@@ -75,21 +86,15 @@ responses:
   - text: "La inversión de $6000 a 18 meses genera un valor total de $6870, con una tasa de interés del 7.25%."
   - text: "La inversión de $6000 a 24 meses genera un valor total de $6653, con una tasa de interés del 7.25%."
 
-# slots: 
-#   number:
-#     type: float
-#     influence_conversation: false
-
-=======
   utter_info_tarjeta_credito:
     - text: "Tarjeta de crédito con beneficios exclusivos y acumulación de millas por cada consumo."
->>>>>>> adicciones
 
   utter_info_inversiones:
     - text: "Inversión rentable desde el primer día. Obtén asesoría exclusiva y maximiza tu dinero."
 
 actions:
   - action_show_product_info
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

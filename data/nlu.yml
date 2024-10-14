@@ -3,38 +3,26 @@ version: "3.1"
 nlu:
 - intent: greet
   examples: |
-<<<<<<< HEAD
     - hey
     - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
-    - hola
-    - alo 
-=======
     - Hola
     - Buenos días
     - Buenas tardes
     - Buenas
->>>>>>> adicciones
 
 - intent: accept_terms
   examples: |
     - Sí
+    - si
+    - s
+    - claro
     - Acepto
     - Claro, acepto los términos
 
 - intent: reject_terms
   examples: |
     - No
+    - n
     - No acepto
     - No quiero aceptar
 
@@ -44,13 +32,13 @@ nlu:
     - ¿Qué productos tienen?
     - Muéstrame las cuentas
 
-
 - intent: choose_product
   examples: |
     - Cuenta de Ahorros
     - Quiero abrir una cuenta corriente
     - Tarjeta de Crédito
     - Estoy interesado en una inversión
+    - Inversion
 
 - intent: confirm_help
   examples: |
@@ -64,10 +52,16 @@ nlu:
     - Eso sería todo
     - No, gracias
 
-# - intent: 
-#   examples: |
-#     - Mi numero es [45] (number)
-#     - Quiero calcular con [20] (number)
-#     - Usa el [100] (number)
-#     - Calcula [30] dolares (number)
+- intent: provide_id
+  examples: |
+    - Mi cedula es [1234567890] (id_number)
+    - [0987654321] (id_number)
+    - Es [0928475914] (id_number)
+
+- intent: provide_number
+  examples: |
+    - Mi numero es [45] (number)
+    - Quiero calcular con [20] (number)
+    - Usa el [100] (number)
+    - Calcula [30] dolares (number)
 
