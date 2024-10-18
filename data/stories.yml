@@ -8,7 +8,7 @@ stories:
     - action: utter_greet
     - action: utter_ask_id
 
-    - intent: provide_id
+    - intent: id_number
     - action: utter_accept_terms
 
     - intent: accept_terms
@@ -22,6 +22,14 @@ stories:
 
     - intent: reject_help
     - action: utter_goodbye
+
+- story: User chooses product by number
+  steps:
+    - intent: choose_product
+      entities:
+        - option_number: "2"
+    - action: action_show_product_info
+    - action: utter_confirm_help
 
 - story: Client chooses Cuenta de Ahorros
   steps:
@@ -59,4 +67,12 @@ stories:
   - action: utter_confirm_help
   - intent: reject_help
   - action: utter_goodbye
+
+- story: Simulador Inversion
+  steps:
+  - action: utter_pregunta_monto_inversion
+  - intent: provide_invest_amount
+  - action: utter_pregunta_tiempo_inversion
+  - intent: provide_invest_time
+  - action: action_invest_calculator
 

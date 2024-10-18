@@ -36,6 +36,7 @@ nlu:
   examples: |
     - Cuenta de Ahorros
     - Quiero abrir una cuenta corriente
+    - Cuenta corriente
     - Tarjeta de Crédito
     - Estoy interesado en una inversión
     - Inversion
@@ -63,6 +64,9 @@ nlu:
     - Quiero saber de [Cuenta Corriente] (product)
     - Hablame de [Inversiones] (product)
     - [Tarjeta de Credito] (product)
+    - [Inversiones] (product)
+    - Opcion [2] (product_number)
+    - Quiero ver la opcion [4] (product_number)
 
 - intent: provide_number
   examples: |
@@ -71,3 +75,15 @@ nlu:
     - Usa el [100] (number)
     - Calcula [30] dolares (number)
 
+- intent: provide_invest_amount
+  examples: |
+    - Quiero invertir $[3000] (invest_amount)
+    - $[1000] (invest_amount)
+    - Un monto de [2400] (invest_amount)
+
+- intent: provide_invest_time
+  examples: | 
+    - En un plazo de [60] dias  (invest_time)
+    - En [80] dias (invest_time)
+    - Durante [365] dias (invest_time)
+    - [200] (invest_time)

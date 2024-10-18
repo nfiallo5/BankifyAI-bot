@@ -13,11 +13,15 @@ intents:
   - choose_product
   - confirm_help
   - reject_help
+  - provide_invest_amount
+  - provide_invest_time
 
 entities:
   - id_number
   - product
   - number
+  - invest_amount
+  - invest_time
 
 slots:
   product:
@@ -35,10 +39,22 @@ slots:
     mappings:
       - type: from_entity
         entity: id_number
+  invest_amount:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: invest_amount
+  invest_time:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: invest_time
 
 regex: 
   - name: id_number
     pattern: "[0-9]{10}"
+  - name: product_number
+    pattern: "[1-6]"
 
 
 responses:
@@ -52,7 +68,7 @@ responses:
     - text: "¿Aceptas el tratamiento de tus datos personales para interactuar por este canal según los Términos y Condiciones? (Responde 'Sí' o 'No')"
 
   utter_ask_products:
-    - text: "Selecciona la opción que deseas: \n1. Cuenta Ahorro Rentable \n2. Cuenta de Ahorros \n3. Cuenta Corriente \n4. Tarjeta de Crédito \n5. Inversiones \n6. Créditos"
+    - text: "Selecciona la opción que deseas: \n[1] Cuenta Ahorro Rentable \n**[2]** Cuenta de Ahorros \n[3] Cuenta Corriente \n[4] Tarjeta de Crédito \n[5] Inversiones \n[6] Créditos"
 
   utter_show_product_info:
     - text: "Aquí tienes información sobre {product}: {product_info}. ¿Puedo atenderte en algo adicional?"
@@ -73,18 +89,18 @@ responses:
     - text: "Deseas que te presene un par de inversiones para tu futura inversion? "
 
   utter_niega_inversion:
-  - text: "Entonces te recomiendo 'Simula tun inversion' en nuestra pagina web \nTe ha interesado nuestra propuesta?"
+    - text: "Entonces te recomiendo 'Simula tun inversion' en nuestra pagina web \nTe ha interesado nuestra propuesta?"
   
   utter_acepta_inversion:
-  - text: "Aqui te doy unos ejemplos que le sacara el maximo provecho a la tasa de interés"
+    - text: "Aqui te doy unos ejemplos que le sacara el maximo provecho a la tasa de interés"
 
   utter_ejemplos_inversiones:
-  - text: "La inversión de $3000 a 12 meses genera un valor total de $3216, con una tasa de interés del 7.20%."
-  - text: "La inversión de $3000 a 18 meses genera un valor total de $3326, con una tasa de interés del 7.25%."
-  - text: "La inversión de $3000 a 24 meses genera un valor total de $3435, con una tasa de interés del 7.25%."
-  - text: "La inversión de $6000 a 12 meses genera un valor total de $6432, con una tasa de interés del 7.20%."
-  - text: "La inversión de $6000 a 18 meses genera un valor total de $6870, con una tasa de interés del 7.25%."
-  - text: "La inversión de $6000 a 24 meses genera un valor total de $6653, con una tasa de interés del 7.25%."
+    - text: "La inversión de $3000 a 12 meses genera un valor total de $3216, con una tasa de interés del 7.20%."
+    - text: "La inversión de $3000 a 18 meses genera un valor total de $3326, con una tasa de interés del 7.25%."
+    - text: "La inversión de $3000 a 24 meses genera un valor total de $3435, con una tasa de interés del 7.25%."
+    - text: "La inversión de $6000 a 12 meses genera un valor total de $6432, con una tasa de interés del 7.20%."
+    - text: "La inversión de $6000 a 18 meses genera un valor total de $6870, con una tasa de interés del 7.25%."
+    - text: "La inversión de $6000 a 24 meses genera un valor total de $6653, con una tasa de interés del 7.25%."
 
   utter_info_tarjeta_credito:
     - text: "Tarjeta de crédito con beneficios exclusivos y acumulación de millas por cada consumo."
@@ -92,8 +108,15 @@ responses:
   utter_info_inversiones:
     - text: "Inversión rentable desde el primer día. Obtén asesoría exclusiva y maximiza tu dinero."
 
+  utter_pregunta_monto_inversion:
+    - text: "Cual es el monto que quieres invertir?"
+
+  utter_pregunta_tiempo_inversion:
+    - text: "En cuanto tiempo quieres invertir este monto? "
+
 actions:
   - action_show_product_info
+  - action_invest_calculate
 
 session_config:
   session_expiration_time: 60
